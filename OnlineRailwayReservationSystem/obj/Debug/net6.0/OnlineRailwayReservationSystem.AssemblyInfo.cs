@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineRailwayReservationSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27ad1cf007c1c393045c3037df01fe6cd5e9e5fe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82fe8df9516304fabf6c8686cb02fc7da5583f23")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineRailwayReservationSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineRailwayReservationSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
