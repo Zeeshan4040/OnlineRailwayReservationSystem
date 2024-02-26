@@ -58,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3RhdGlvbk1hc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/.net demo/OnlineRailwayReservationSystem/OnlineRailwayReservationSystem/Views/Admin/StationMasterAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3RhdGlvbk1hc3RlckFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/.net demo/OnlineRailwayReservationSystem/OnlineRailwayReservationSystem/Views/Admin/StationMasterEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3RhdGlvbk1hc3RlckVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,12 +70,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVHJhaW5NYXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/.net demo/OnlineRailwayReservationSystem/OnlineRailwayReservationSystem/Views/Admin/TrainMasterAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVHJhaW5NYXN0ZXJBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/.net demo/OnlineRailwayReservationSystem/OnlineRailwayReservationSystem/Views/Admin/TrainMasterEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVHJhaW5NYXN0ZXJFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/.net demo/OnlineRailwayReservationSystem/OnlineRailwayReservationSystem/Views/Admin/TrainScheduleMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVHJhaW5TY2hlZHVsZU1hc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/.net demo/OnlineRailwayReservationSystem/OnlineRailwayReservationSystem/Views/Admin/TrainScheduleMasterAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVHJhaW5TY2hlZHVsZU1hc3RlckFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/.net demo/OnlineRailwayReservationSystem/OnlineRailwayReservationSystem/Views/Admin/TrainScheduleMasterEdit.cshtml]

@@ -8,5 +8,6 @@ namespace OnlineRailwayReservationSystem.Models
         {
 
         }
+        public DbSet<StationMaster> tbl_StationMaster { get; set; }
     }
 }

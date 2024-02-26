@@ -1,9 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineRailwayReservationSystem.Models;
 
 namespace OnlineRailwayReservationSystem.Controllers
 {
     public class AdminController : Controller
     {
+        private myContext _context;
+        public AdminController(myContext context) {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -14,13 +19,37 @@ namespace OnlineRailwayReservationSystem.Controllers
         }
         public IActionResult StationMaster()
         {
-            return View();
+            var StationData = _context.tbl_StationMaster.ToList();
+            return View(StationData);
         }
-        public IActionResult StationMasterEdit()
+        public IActionResult StationMasterAdd()
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult StationMasterAdd(StationMaster stationMaster)
+        {
+            _context.tbl_StationMaster.Add(stationMaster);
+            _context.SaveChanges();
+            return RedirectToAction("StationMaster");
+        }
+        public IActionResult StationMasterEdit(int id)
+        {
+            var updateData = _context.tbl_StationMaster.Find(id);
+            return View(updateData);
+        }
+        [HttpPost]
+        public IActionResult StationMasterEdit(StationMaster stationMaster)
+        {
+            _context.tbl_StationMaster.Update(stationMaster);
+            _context.SaveChanges();
+            return RedirectToAction("StationMaster");
+        }
         public IActionResult TrainMaster()
+        {
+            return View();
+        }
+        public IActionResult TrainMasterAdd()
         {
             return View();
         }
@@ -29,6 +58,10 @@ namespace OnlineRailwayReservationSystem.Controllers
             return View();
         }
         public IActionResult TrainScheduleMaster()
+        {
+            return View();
+        }
+        public IActionResult TrainScheduleMasterAdd()
         {
             return View();
         }
