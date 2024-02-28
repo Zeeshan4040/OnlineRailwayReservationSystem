@@ -47,15 +47,31 @@ namespace OnlineRailwayReservationSystem.Controllers
         }
         public IActionResult TrainMaster()
         {
-            return View();
+            var TrainData = _context.tbl_TrainMaster.ToList();
+            return View(TrainData);
         }
         public IActionResult TrainMasterAdd()
         {
             return View();
         }
-        public IActionResult TrainMasterEdit()
+        [HttpPost]
+        public IActionResult TrainMasterAdd(TrainMaster trainMaster)
         {
-            return View();
+            _context.tbl_TrainMaster.Add(trainMaster);
+            _context.SaveChanges();
+            return RedirectToAction("TrainMaster");
+        }
+        public IActionResult TrainMasterEdit(int id)
+        {
+            var updateData = _context.tbl_TrainMaster.Find(id);
+            return View(updateData);
+        }
+        [HttpPost]
+        public IActionResult TrainMasterEdit(TrainMaster trainMaster)
+        {
+            _context.tbl_TrainMaster.Update(trainMaster);
+            _context.SaveChanges();
+            return RedirectToAction("TrainMaster");
         }
         public IActionResult TrainScheduleMaster()
         {
@@ -71,15 +87,87 @@ namespace OnlineRailwayReservationSystem.Controllers
         }
         public IActionResult FareRule()
         {
+            var FareRule = _context.tbl_FareRule.ToList();
+            return View(FareRule);
+        }
+        public IActionResult FareRuleAdd()
+        {
             return View();
+        }
+        [HttpPost]
+        public IActionResult FareRuleAdd(FareRule fareRule)
+        {
+            _context.tbl_FareRule.Add(fareRule);
+            _context.SaveChanges();
+            return RedirectToAction("FareRule");
+        }
+        public IActionResult FareRuleEdit(int id)
+        {
+            var UpdateData = _context.tbl_FareRule.Find(id);
+            return View(UpdateData);
+        }
+        [HttpPost]
+        public IActionResult FareRuleEdit(FareRule fareRule)
+        {
+            _context.tbl_FareRule.Update(fareRule);
+            _context.SaveChanges();
+            return RedirectToAction("FareRule");
         }
         public IActionResult CancellationFees()
         {
+            var cancellationFees = _context.tbl_CancellationFees.ToList();
+            return View(cancellationFees);
+        }
+        public IActionResult CancellationFeesAdd()
+        {
             return View();
+        }
+        [HttpPost]
+        public IActionResult CancellationFeesAdd(CancellationFees cancellationFees)
+        {
+            _context.tbl_CancellationFees.Add(cancellationFees);
+            _context.SaveChanges();
+            return View();
+        }
+        public IActionResult CancellationFeesEdit(int id) 
+        {
+            var UpdateData = _context.tbl_CancellationFees.Find(id);
+            return View(UpdateData);
+        }
+        [HttpPost]
+        public IActionResult CancellationFeesEdit(CancellationFees cancellationFees) 
+        {
+            _context.tbl_CancellationFees.Update(cancellationFees);
+            _context.SaveChanges();
+            return RedirectToAction("cancellationFees");
         }
         public IActionResult ReservationFees()
         {
+            var ReservationFees = _context.tbl_ReservationFees.ToList();
+            return View(ReservationFees);
+        }
+        public IActionResult ReservationFeesAdd()
+        {
             return View();
+        }
+        [HttpPost]
+        public IActionResult ReservationFeesAdd(ReservationFees reservationFees)
+        {
+            _context.tbl_ReservationFees.Add(reservationFees);
+            _context.SaveChanges();
+            return RedirectToAction("ReservationFees");
+        }
+        public IActionResult ReservationFeesEdit(int id)
+        {
+            var UpdateData = _context.tbl_ReservationFees.Find(id);
+            return View(UpdateData);
+        }
+        [HttpPost]
+        public IActionResult ReservationFeesEdit(ReservationFees reservationFees)
+        {
+            _context.tbl_ReservationFees.Update(reservationFees);
+            _context.SaveChanges();
+            return RedirectToAction("ReservationFees");
         }
         public IActionResult Reservation()
         {

@@ -1,5 +1,7 @@
 ﻿ <!-- Fare Rule Master Start -->
 
+ @model List<FareRule>
+
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
@@ -19,38 +21,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>A1</td>
-                            <td>0</td>
-                            <td>99</td>
-                            <td>1500</td>
-                            <td>
-                                <a href="" class="btn btn-primary btn-sm">Edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>A2</td>
-                            <td>100</td>
-                            <td>499</td>
-                            <td>2000</td>
-                            <td>
-                                <a href="" class="btn btn-primary btn-sm">Edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>A3</td>
-                            <td>500</td>
-                            <td>999</td>
-                            <td>2500</td>
-                            <td>
-                                <a href="" class="btn btn-primary btn-sm">Edit</a>
-                            </td>
-                        </tr>
+                        @foreach (var data in Model)
+                        {
+                            <tr>
+                                <td>@data.Fare_Id</td>
+                                <td>@data.Coach_Type</td>
+                                <td>@data.Distance_From</td>
+                                <td>@data.Distance_To</td>
+                                <td>@data.Ticket_Amount</td>
+                                <td>
+                                    <a href="@Url.Action("FareRuleEdit", "Admin", new{id=data.Fare_Id})" class="btn btn-primary btn-sm">Edit</a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
+                <div class="d-flex align-items-start">
+                    <a href="@Url.Action("FareRuleAdd", "Admin")">
+                        <button class="btn btn-primary">
+                            Add New
+                        </button>
+                    </a>
+                    <button class="ms-2 btn btn-primary">
+                        Back
+                    </button>
+                </div>
             </div>
         </div>
     </div>

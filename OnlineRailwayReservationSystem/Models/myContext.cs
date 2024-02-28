@@ -9,5 +9,10 @@ namespace OnlineRailwayReservationSystem.Models
 
         }
         public DbSet<StationMaster> tbl_StationMaster { get; set; }
+        public DbSet<TrainMaster> tbl_TrainMaster { get; set; }
+        //public DbSet<TrainMaster> tbl_TrainScheduleMaster { get; set; }
+        public DbSet<FareRule> tbl_FareRule { get; set; }
+        public DbSet<CancellationFees> tbl_CancellationFees { get; set; }
+        public DbSet<ReservationFees> tbl_ReservationFees { get; set; }
     }
 }

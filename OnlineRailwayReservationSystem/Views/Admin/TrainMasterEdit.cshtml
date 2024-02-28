@@ -1,5 +1,7 @@
 ﻿<!-- Train Master Edit Start -->
 
+@model TrainMaster
+
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
@@ -7,52 +9,56 @@
                 <div class="d-flex align-items-center justify-content-center mb-4">
                     <h5 class="mb-0">Edit Train Master</h5>
                 </div>
-                <form action="">
+                <form action="" method="post">
                     <div class="bg-light rounded d-block ms-auto me-auto h-100 p-4">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control w-50" placeholder="Train No. :">
+                            <input type="hidden" name="Train_Id" value="@Model.Train_Id" />
+                            <input type="text" disabled class="form-control w-50" value="@Model.Train_Id" placeholder="Train ID :">
+                            <label>Train ID :</label>
+                        </div><div class="form-floating mb-3">
+                            <input type="text" class="form-control w-50" value="@Model.Train_No" name="Train_No" placeholder="Train No. :">
                             <label>Train No. :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control w-50" placeholder="Train Name :">
+                            <input type="text" class="form-control w-50" value="@Model.Train_Name" name="Train_Name" placeholder="Train Name :">
                             <label>Train Name :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <select class="form-select w-50" aria-label="Floating label select example">
-                                <option selected>-- Select --</option>
-                                <option value="1">PASSENGER</option>
-                                <option value="2">SUPER FAST</option>
+                            <select class="form-select w-50" name="Train_Type">
+                                <option value="@Model.Train_Type">@Model.Train_Type</option>
+                                <option value="PASSENGER">PASSENGER</option>
+                                <option value="SUPER FAST">SUPER FAST</option>
                             </select>
                             <label>Train Type :</label>
                         </div>
                         <div class="d-flex">
                             <label class="me-2">Schedule :</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="@Model.Schedule_Mon" name="Schedule_Mon" type="checkbox">
                                 <label class="form-check-label">M</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="@Model.Schedule_Tue" name="Schedule_Tue" type="checkbox">
                                 <label class="form-check-label">T</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="@Model.Schedule_Wed" name="Schedule_Wed" type="checkbox">
                                 <label class="form-check-label">W</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="@Model.Schedule_Thu" name="Schedule_Thu" type="checkbox">
                                 <label class="form-check-label">T</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="@Model.Schedule_Fri" name="Schedule_Fri" type="checkbox">
                                 <label class="form-check-label">F</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="@Model.Schedule_Sat" name="Schedule_Sat" type="checkbox">
                                 <label class="form-check-label">S</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="@Model.Schedule_Sun" name="Schedule_Sun" type="checkbox">
                                 <label class="form-check-label">S</label>
                             </div>
                         </div><br>
@@ -60,19 +66,19 @@
                             <label class="col-sm-2 col-form-label">No. Of Coaches :</label>
 
                             <label class="col-sm-1 col-form-label">A1:</label>
-                            <input type="text" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
+                            <input type="text" value="@Model.Coach_A1" name="Coach_A1" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
 
                             <label class="col-sm-1 col-form-label">A2:</label>
-                            <input type="text" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
+                            <input type="text" value="@Model.Coach_A2" name="Coach_A2" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
 
                             <label class="col-sm-1 col-form-label">A3:</label>
-                            <input type="text" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
+                            <input type="text" value="@Model.Coach_A3" name="Coach_A3" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
 
                             <label class="col-sm-1 col-form-label">SL:</label>
-                            <input type="text" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
+                            <input type="text" value="@Model.Coach_SL" name="Coach_SL" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
 
                             <label class="col-sm-1 col-form-label">GN:</label>
-                            <input type="text" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
+                            <input type="text" value="@Model.Coach_GN" name="Coach_GN" style="width: 50px; border-radius: 5px; border: 1px solid rgb(194, 169, 169);" class="">
 
                         </div>
 

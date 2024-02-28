@@ -1,5 +1,7 @@
 ﻿  <!-- Cancellation Fees Master Start -->
 
+  @model List<CancellationFees>
+
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
@@ -18,17 +20,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>25</td>
-                            <td>45</td>
-                            <td>75</td>
-                            <td>
-                                <a href="" class="btn btn-primary btn-sm">Edit</a>
-                            </td>
-                        </tr>
+                        @foreach (var data in Model)
+                        {
+                            <tr>
+                                <td>@data.CancellationFees_Id</td>
+                                <td>@data.Cancellation_24Hours</td>
+                                <td>@data.Cancellation_12Hours</td>
+                                <td>@data.Cancellation_1Hours</td>
+                                <td>
+                                    <a href="@Url.Action("CancellationFeesEdit", "Admin", new{id=data.CancellationFees_Id})" class="btn btn-primary btn-sm">Edit</a>
+                                </td>
+                            </tr>
+                        }
+                        
                     </tbody>
                 </table>
+                <div class="d-flex align-items-start">
+                    <a href="@Url.Action("CancellationFeesAdd", "Admin")">
+                        <button class="btn btn-primary">
+                            Add New
+                        </button>
+                    </a>
+                    <button class="ms-2 btn btn-primary">
+                        Back
+                    </button>
+                </div>
             </div>
         </div>
     </div>
