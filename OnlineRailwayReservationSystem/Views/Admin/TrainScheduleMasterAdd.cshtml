@@ -1,5 +1,11 @@
 ﻿ <!-- Train Schrdule Master Add Start -->
 
+ @{
+    var trainData = ViewData["TrainData"] as List<TrainMaster>;
+    var stationData = ViewData["StationData"] as List<StationMaster>;
+
+ }
+
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
@@ -8,7 +14,7 @@
                     <h5 class="mb-0">Add Train Schedule Master</h5>
                 </div>
 
-                <form action="">
+                <form action="" method="post">
                     <div class="bg-light rounded d-block ms-auto me-auto h-100 p-4">
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control w-50" name="Schedule_Date" placeholder="Schedule Date :">
@@ -16,19 +22,19 @@
                         </div>
                         <div class="form-floating mb-3">
                             <select class="form-select w-50" name="Train_No">
-                                <option selected>-- Select --</option>
-                                <option>1001</option>
-                                <option>1002</option>
-                                <option>1003</option>
+                                @foreach (var data in trainData)
+                                {
+                                    <option>@data.Train_No</option>
+                                }
                             </select>
                             <label>Train No. :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <select class="form-select w-50" name="Station_Code">
-                                <option selected>-- Select --</option>
-                                <option>CST</option>
-                                <option>GOA</option>
-                                <option>DUR</option>
+                            <select class="form-select w-50 text-uppercase" name="Station_Code">
+                                @foreach (var data in stationData)
+                                {
+                                    <option class="text-uppercase">@data.Station_Code</option>
+                                }
                             </select>
                             <label>Station Code :</label>
                         </div>

@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace OnlineRailwayReservationSystem.Migrations
 {
-    public partial class Master : Migration
+    public partial class Masters : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -95,6 +96,25 @@ namespace OnlineRailwayReservationSystem.Migrations
                 {
                     table.PrimaryKey("PK_tbl_TrainMaster", x => x.Train_Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "tbl_TrainScheduleMaster",
+                columns: table => new
+                {
+                    Schedule_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Schedule_Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Train_No = table.Column<int>(type: "int", nullable: false),
+                    Station_Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Distance = table.Column<int>(type: "int", nullable: false),
+                    Arrival_Time = table.Column<TimeSpan>(type: "time", nullable: false),
+                    Departure_Time = table.Column<TimeSpan>(type: "time", nullable: false),
+                    Day = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tbl_TrainScheduleMaster", x => x.Schedule_Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -113,6 +133,9 @@ namespace OnlineRailwayReservationSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "tbl_TrainMaster");
+
+            migrationBuilder.DropTable(
+                name: "tbl_TrainScheduleMaster");
         }
     }
 }

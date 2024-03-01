@@ -73,17 +73,45 @@ namespace OnlineRailwayReservationSystem.Controllers
             _context.SaveChanges();
             return RedirectToAction("TrainMaster");
         }
-        public IActionResult TrainScheduleMaster()
+        public IActionResult TrainScheduleMaster(TrainScheduleMaster trainScheduleMaster)
         {
-            return View();
+            var ScheduleData = _context.tbl_TrainScheduleMaster.ToList();
+            return View(ScheduleData);
         }
         public IActionResult TrainScheduleMasterAdd()
         {
+            var TrainData = _context.tbl_TrainMaster.ToList();
+            var StationData = _context.tbl_StationMaster.ToList();
+
+            ViewData["TrainData"] = TrainData;
+            ViewData["StationData"] = StationData;
+
             return View();
         }
-        public IActionResult TrainScheduleMasterEdit()
+        [HttpPost]
+        public IActionResult TrainScheduleMasterAdd(TrainScheduleMaster trainScheduleMaster)
         {
-            return View();
+            _context.tbl_TrainScheduleMaster.Add(trainScheduleMaster);
+            _context.SaveChanges();
+            return RedirectToAction("TrainScheduleMaster");
+        }
+        public IActionResult TrainScheduleMasterEdit(int id)
+        {
+            var TrainData = _context.tbl_TrainMaster.ToList();
+            var StationData = _context.tbl_StationMaster.ToList();
+
+            ViewData["TrainData"] = TrainData;
+            ViewData["StationData"] = StationData;
+
+            var updateData = _context.tbl_TrainScheduleMaster.Find(id);
+            return View(updateData);
+        }
+        [HttpPost]
+        public IActionResult TrainScheduleMasterEdit(TrainScheduleMaster trainScheduleMaster)
+        {
+            _context.tbl_TrainScheduleMaster.Update(trainScheduleMaster);
+            _context.SaveChanges();
+            return RedirectToAction("TrainScheduleMaster");
         }
         public IActionResult FareRule()
         {
@@ -127,7 +155,7 @@ namespace OnlineRailwayReservationSystem.Controllers
         {
             _context.tbl_CancellationFees.Add(cancellationFees);
             _context.SaveChanges();
-            return View();
+            return RedirectToAction("CancellationFees");
         }
         public IActionResult CancellationFeesEdit(int id) 
         {

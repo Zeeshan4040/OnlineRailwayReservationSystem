@@ -1,5 +1,13 @@
 ﻿<!-- Train Schrdule Master Edit Start -->
 
+@model TrainScheduleMaster
+
+@{
+    var trainData = ViewData["TrainData"] as List<TrainMaster>;
+    var stationData = ViewData["StationData"] as List<StationMaster>;
+
+}
+
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
@@ -8,48 +16,49 @@
                     <h5 class="mb-0">Edit Train Schedule Master</h5>
                 </div>
 
-                <form action="">
+                <form action="" method="post">
                     <div class="bg-light rounded d-block ms-auto me-auto h-100 p-4">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control w-50" placeholder="Schedule ID :">
+                            <input type="hidden" value="@Model.Schedule_Id" name="Schedule_Id">
+                            <input type="text" disabled class="form-control w-50" value="@Model.Schedule_Id" placeholder="Schedule ID :">
                             <label>Schedule ID :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control w-50" placeholder="Schedule Date :">
+                            <input type="date" class="form-control w-50" value="@Model.Schedule_Date" name="Schedule_Date" placeholder="Schedule Date :">
                             <label>Schedule Date :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <select class="form-select w-50" aria-label="Floating label select example">
-                                <option selected>-- Select --</option>
-                                <option value="1">1001</option>
-                                <option value="2">1002</option>
-                                <option value="3">1003</option>
+                            <select class="form-select w-50" value="@Model.Train_No" name="Train_No">
+                                @foreach (var data in trainData)
+                                {
+                                    <option>@data.Train_No</option>
+                                }
                             </select>
                             <label>Train No. :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <select class="form-select w-50" aria-label="Floating label select example">
-                                <option selected>-- Select --</option>
-                                <option value="1">CST</option>
-                                <option value="2">GOA</option>
-                                <option value="3">DUR</option>
+                            <select class="form-select w-50" value="@Model.Station_Code" name="Station_Code">
+                                @foreach (var data in stationData)
+                                {
+                                    <option class="text-uppercase">@data.Station_Code</option>
+                                }
                             </select>
                             <label>Station Code :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control w-50" placeholder="Distance :">
+                            <input type="text" class="form-control w-50" value="@Model.Distance" name="Distance" placeholder="Distance :">
                             <label>Distance :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="time" class="form-control w-50" placeholder="Arrival Time :">
+                            <input type="time" class="form-control w-50" value="@Model.Arrival_Time" name="Arrival_Time" placeholder="Arrival Time :">
                             <label>Arrival Time :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="time" class="form-control w-50" placeholder="Departure Time :">
+                            <input type="time" class="form-control w-50" value="@Model.Departure_Time" name="Departure_Time" placeholder="Departure Time :">
                             <label>Departure Time :</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control w-50" placeholder="Day :">
+                            <input type="text" class="form-control w-50" value="@Model.Day" name="Day" placeholder="Day :">
                             <label>Day :</label>
                         </div>
                         <div>
@@ -57,11 +66,12 @@
                                 <button class="btn btn-primary" type="submit">
                                     Submit
                                 </button>
-                                <button class="ms-2 btn btn-primary">
+                                <a href="@Url.Action("TrainScheduleMaster", "Admin")" class="ms-2 btn btn-primary">
                                     Back
-                                </button>
+                                </a>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
